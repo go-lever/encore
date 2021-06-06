@@ -11,9 +11,11 @@ type Entrypoint struct {
 	CSS []string `json:"css"`
 }
 
+const defaultEntrypointFile = "entrypoints.json"
+
 type Entrypoints map[string]Entrypoint
 
-func ReadEntrypoints(file fs.File) (Entrypoints, error) {
+func readEntrypoints(file fs.File) (Entrypoints, error) {
 	b, err := ioutil.ReadAll(file)
 	if err != nil {
 		return nil, err

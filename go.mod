@@ -1,4 +1,4 @@
-module github.com/seblegall/encore
+module github.com/go-lever/encore
 
 go 1.16
 

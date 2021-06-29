@@ -3,8 +3,8 @@ package encore
 import (
 	"fmt"
 	"html/template"
+	"io/fs"
 	"log"
-	"net/http"
 	"path"
 	"strings"
 )
@@ -14,7 +14,7 @@ type Renderer struct {
 	path        string
 }
 
-func NewRenderer(assetFS http.FileSystem, path string) *Renderer {
+func NewRenderer(assetFS fs.FS, path string) *Renderer {
 	entrypointFile, err := assetFS.Open(defaultEntrypointFile)
 	if err != nil {
 		log.Fatalf("%s file not found : %s", defaultEntrypointFile, err.Error())
